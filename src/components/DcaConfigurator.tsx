@@ -24,11 +24,11 @@ export function DcaConfigurator({
   maxDate,
 }: Props) {
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="grid grid-cols-2 gap-2">
       <label className="btm-label">
         <span className="px-1">Amount</span>
         <div className="relative">
-          <span className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 btm-muted">
+          <span className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-sm btm-muted">
             $
           </span>
           <input
@@ -38,7 +38,7 @@ export function DcaConfigurator({
             step={1}
             value={amount}
             onChange={(e) => onAmount(Math.max(1, Number(e.target.value) || 0))}
-            className="btm-input pl-5"
+            className="btm-input pl-7"
           />
         </div>
       </label>
@@ -64,8 +64,8 @@ export function DcaConfigurator({
         </select>
       </label>
 
-      <label className="btm-label">
-        <span className="px-1">Start</span>
+      <label className="btm-label col-span-2">
+        <span className="px-1">Start date</span>
         <input
           type="date"
           value={startDate}

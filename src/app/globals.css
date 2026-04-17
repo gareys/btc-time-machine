@@ -20,16 +20,17 @@
 
 html.dark {
   color-scheme: dark;
-  --bg: #0b0b0d;
+  /* Match TBA dark spectrum: gray0 = rgb(10,11,13) */
+  --bg: rgb(10, 11, 13);
   --fg: #f4f4f5;
   --muted: #a1a1aa;
-  --card-bg: #18181b;
-  --card-border: #27272a;
-  --input-bg: #0f0f12;
-  --input-border: #3f3f46;
+  --card-bg: rgb(20, 21, 25);
+  --card-border: rgb(28, 29, 33);
+  --input-bg: rgb(10, 11, 13);
+  --input-border: rgb(40, 42, 48);
   --input-fg: #f4f4f5;
   --placeholder: #71717a;
-  --cta-bar-bg: rgba(11, 11, 13, 0.95);
+  --cta-bar-bg: rgba(10, 11, 13, 0.95);
   --positive: #34d399;
   --negative: #fb7185;
 }
