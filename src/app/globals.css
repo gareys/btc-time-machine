@@ -3,27 +3,45 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
+  --bg: #ffffff;
+  --fg: #18181b;
+  --muted: #71717a;
+  --surface: #f4f4f5;
+  --surface-2: #e4e4e7;
+  --border: #e4e4e7;
+  --cta-bg: #ffffffee;
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg: #0b0b0d;
+  --fg: #f4f4f5;
+  --muted: #a1a1aa;
+  --surface: #18181b;
+  --surface-2: #27272a;
+  --border: #27272a;
+  --cta-bg: #0b0b0dee;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
-  background: #ffffff;
-  color: #18181b;
+  background: var(--bg);
+  color: var(--fg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  html,
-  body {
-    background: #0b0b0d;
-    color: #f4f4f5;
-  }
-}
-
 * {
   box-sizing: border-box;
+}
+
+/* Native form controls follow the active scheme */
+input,
+select,
+button,
+textarea {
+  color-scheme: inherit;
 }
