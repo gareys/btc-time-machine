@@ -38,18 +38,21 @@ export default function Home() {
   const profitPositive = profit >= 0;
 
   return (
-    <main className="mx-auto flex h-[100svh] max-w-xl flex-col gap-3 px-3 pb-[88px] pt-3">
+    <main
+      className="mx-auto flex h-[100svh] max-w-xl flex-col gap-2 px-3 pt-2"
+      style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 76px)' }}
+    >
       <header className="flex items-center justify-between gap-2">
         <div className="min-w-0">
-          <h1 className="truncate text-lg font-semibold tracking-tight">BTC Time Machine</h1>
-          <p className="truncate text-[11px] text-zinc-500 dark:text-zinc-400">
+          <h1 className="truncate text-base font-semibold tracking-tight">BTC Time Machine</h1>
+          <p className="truncate text-[11px] btm-muted">
             What would your DCA be worth today?
           </p>
         </div>
         <ConnectButton />
       </header>
 
-      <section className="rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-800 dark:bg-zinc-900/40">
+      <section className="btm-card p-3">
         <DcaConfigurator
           amount={amount}
           onAmount={setAmount}
@@ -62,7 +65,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="flex min-h-0 flex-1 flex-col gap-2 rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-800 dark:bg-zinc-900/40">
+      <section className="btm-card flex min-h-0 flex-1 flex-col gap-2 p-3">
         <div className="grid grid-cols-3 gap-1 text-center">
           <Stat label="Invested" value={formatUsd(result.totalInvested)} />
           <Stat
@@ -85,12 +88,15 @@ export default function Home() {
             onPickDate={setStartDate}
           />
         </div>
-        <p className="text-center text-[10px] text-zinc-400 dark:text-zinc-500">
+        <p className="text-center text-[10px] btm-muted">
           Tap chart to set start · {isLive ? 'Live BTC price' : 'Cached BTC price'}
         </p>
       </section>
 
-      <div className="fixed inset-x-0 bottom-0 z-10 border-t border-zinc-200 bg-white/95 px-3 pb-[max(env(safe-area-inset-bottom),12px)] pt-3 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/95">
+      <div
+        className="fixed inset-x-0 bottom-0 z-10 px-3 pt-3 btm-cta-bar"
+        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 12px)' }}
+      >
         <div className="mx-auto max-w-xl">
           <SwapCta />
         </div>
@@ -111,16 +117,10 @@ function Stat({
   highlight?: 'positive' | 'negative';
 }) {
   const tone =
-    highlight === 'positive'
-      ? 'text-emerald-600 dark:text-emerald-400'
-      : highlight === 'negative'
-        ? 'text-rose-600 dark:text-rose-400'
-        : 'text-zinc-900 dark:text-zinc-100';
+    highlight === 'positive' ? 'btm-positive' : highlight === 'negative' ? 'btm-negative' : '';
   return (
     <div className="flex flex-col items-center gap-0">
-      <span className="text-[10px] font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-        {label}
-      </span>
+      <span className="text-[10px] font-medium uppercase tracking-wide btm-muted">{label}</span>
       <span className={`text-sm font-semibold tabular-nums ${tone}`}>{value}</span>
       {sub ? <span className={`text-[11px] tabular-nums ${tone}`}>{sub}</span> : null}
     </div>

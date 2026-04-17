@@ -7,10 +7,15 @@
   --bg: #ffffff;
   --fg: #18181b;
   --muted: #71717a;
-  --surface: #f4f4f5;
-  --surface-2: #e4e4e7;
-  --border: #e4e4e7;
-  --cta-bg: #ffffffee;
+  --card-bg: #fafafa;
+  --card-border: #e4e4e7;
+  --input-bg: #ffffff;
+  --input-border: #d4d4d8;
+  --input-fg: #18181b;
+  --placeholder: #a1a1aa;
+  --cta-bar-bg: rgba(255, 255, 255, 0.95);
+  --positive: #059669;
+  --negative: #e11d48;
 }
 
 html.dark {
@@ -18,10 +23,15 @@ html.dark {
   --bg: #0b0b0d;
   --fg: #f4f4f5;
   --muted: #a1a1aa;
-  --surface: #18181b;
-  --surface-2: #27272a;
-  --border: #27272a;
-  --cta-bg: #0b0b0dee;
+  --card-bg: #18181b;
+  --card-border: #27272a;
+  --input-bg: #0f0f12;
+  --input-border: #3f3f46;
+  --input-fg: #f4f4f5;
+  --placeholder: #71717a;
+  --cta-bar-bg: rgba(11, 11, 13, 0.95);
+  --positive: #34d399;
+  --negative: #fb7185;
 }
 
 html,
@@ -38,10 +48,79 @@ body {
   box-sizing: border-box;
 }
 
-/* Native form controls follow the active scheme */
 input,
 select,
-button,
-textarea {
+textarea,
+button {
   color-scheme: inherit;
+  font: inherit;
+}
+
+.btm-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.btm-input {
+  height: 38px;
+  width: 100%;
+  background: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+}
+.btm-input::placeholder {
+  color: var(--placeholder);
+}
+.btm-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+}
+
+.btm-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btm-cta-bar {
+  background: var(--cta-bar-bg);
+  border-top: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+}
+
+.btm-cta {
+  display: flex;
+  height: 48px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  text-decoration: none;
+}
+.btm-cta:active {
+  transform: scale(0.99);
+  background: #1d4ed8;
+}
+
+.btm-positive {
+  color: var(--positive);
+}
+.btm-negative {
+  color: var(--negative);
+}
+.btm-muted {
+  color: var(--muted);
 }
