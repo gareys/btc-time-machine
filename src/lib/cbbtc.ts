@@ -8,17 +8,11 @@ const swapParams = new URLSearchParams({
 });
 
 /**
- * Native scheme deeplink — fires Coinbase Wallet's Trade flow directly when
- * the host app already owns the `cbwallet://` scheme (i.e. inside TBA's
- * Experiments webview, or any iOS/Android device with the app installed).
+ * Coinbase Wallet native scheme deeplink for the Swap (Trade) flow with
+ * cbBTC pre-selected as the destination on Base. Format from TBA's deeplink
+ * registry — the wallet's swap deeplink handler routes this into the new
+ * Trade/Swap surface inside the app.
  *
- * Format from TBA's deeplink registry:
  *   cbwallet://swap?contractAddress=<addr>&chainId=<id>
  */
-export const CBBTC_SWAP_SCHEME = `cbwallet://swap?${swapParams.toString()}`;
-
-/**
- * Universal link fallback — used when the scheme handler isn't installed.
- * Resolves via go.cb-w.com to either open the wallet or land on download.
- */
-export const CBBTC_SWAP_UNIVERSAL = `https://go.cb-w.com/swap?${swapParams.toString()}`;
+export const CBBTC_SWAP_URL = `cbwallet://swap?${swapParams.toString()}`;
